@@ -1,0 +1,69 @@
+
+03/02 16:35:37: Launching app
+$ adb push C:\Student\AndroidStudioProjects\MyApplication3\app\build\outputs\apk\app-debug.apk /data/local/tmp/com.example.b00639120.myapplication
+$ adb shell pm install -r "/data/local/tmp/com.example.b00639120.myapplication"
+Success
+
+
+$ adb shell am start -n "com.example.b00639120.myapplication/com.example.b00639120.myapplication.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
+Client not ready yet..Waiting for process to come online
+Waiting for process to come online
+Waiting for process to come online
+Waiting for process to come online
+Connected to process 2260 on device emulator-5554
+E/SQLiteLog: (1) near ".": syntax error
+D/AndroidRuntime: Shutting down VM
+
+
+                  --------- beginning of crash
+E/AndroidRuntime: FATAL EXCEPTION: main
+                  Process: com.example.b00639120.myapplication, PID: 2260
+                  java.lang.IllegalStateException: Could not execute method for android:onClick
+                      at android.support.v7.app.AppCompatViewInflater$DeclaredOnClickListener.onClick(AppCompatViewInflater.java:293)
+                      at android.view.View.performClick(View.java:5610)
+                      at android.view.View$PerformClick.run(View.java:22260)
+                      at android.os.Handler.handleCallback(Handler.java:751)
+                      at android.os.Handler.dispatchMessage(Handler.java:95)
+                      at android.os.Looper.loop(Looper.java:154)
+                      at android.app.ActivityThread.main(ActivityThread.java:6077)
+                      at java.lang.reflect.Method.invoke(Native Method)
+                      at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:865)
+                      at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:755)
+                   Caused by: java.lang.reflect.InvocationTargetException
+                      at java.lang.reflect.Method.invoke(Native Method)
+                      at android.support.v7.app.AppCompatViewInflater$DeclaredOnClickListener.onClick(AppCompatViewInflater.java:288)
+                      at android.view.View.performClick(View.java:5610) 
+                      at android.view.View$PerformClick.run(View.java:22260) 
+                      at android.os.Handler.handleCallback(Handler.java:751) 
+                      at android.os.Handler.dispatchMessage(Handler.java:95) 
+                      at android.os.Looper.loop(Looper.java:154) 
+                      at android.app.ActivityThread.main(ActivityThread.java:6077) 
+                      at java.lang.reflect.Method.invoke(Native Method) 
+                      at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:865) 
+                      at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:755) 
+                   Caused by: android.database.sqlite.SQLiteException: near ".": syntax error (code 1): , while compiling: create table employee (id integer primary key not null , name text not null , surname text not null , email text not null , job title text not null , telephone no. text not null ,start time text not null , finish time text not null , hourly rate text not null , pass text not null );
+                      at android.database.sqlite.SQLiteConnection.nativePrepareStatement(Native Method)
+                      at android.database.sqlite.SQLiteConnection.acquirePreparedStatement(SQLiteConnection.java:889)
+                      at android.database.sqlite.SQLiteConnection.prepare(SQLiteConnection.java:500)
+                      at android.database.sqlite.SQLiteSession.prepare(SQLiteSession.java:588)
+                      at android.database.sqlite.SQLiteProgram.<init>(SQLiteProgram.java:58)
+                      at android.database.sqlite.SQLiteStatement.<init>(SQLiteStatement.java:31)
+                      at android.database.sqlite.SQLiteDatabase.executeSql(SQLiteDatabase.java:1675)
+                      at android.database.sqlite.SQLiteDatabase.execSQL(SQLiteDatabase.java:1606)
+                      at com.example.b00639120.myapplication.DatabaseHelper.onCreate(DatabaseHelper.java:39)
+                      at android.database.sqlite.SQLiteOpenHelper.getDatabaseLocked(SQLiteOpenHelper.java:251)
+                      at android.database.sqlite.SQLiteOpenHelper.getReadableDatabase(SQLiteOpenHelper.java:187)
+                      at com.example.b00639120.myapplication.DatabaseHelper.searchPass(DatabaseHelper.java:70)
+                      at com.example.b00639120.myapplication.MainActivity.onButtonClick(MainActivity.java:39)
+                      at java.lang.reflect.Method.invoke(Native Method) 
+                      at android.support.v7.app.AppCompatViewInflater$DeclaredOnClickListener.onClick(AppCompatViewInflater.java:288) 
+                      at android.view.View.performClick(View.java:5610) 
+                      at android.view.View$PerformClick.run(View.java:22260) 
+                      at android.os.Handler.handleCallback(Handler.java:751) 
+                      at android.os.Handler.dispatchMessage(Handler.java:95) 
+                      at android.os.Looper.loop(Looper.java:154) 
+                      at android.app.ActivityThread.main(ActivityThread.java:6077) 
+                      at java.lang.reflect.Method.invoke(Native Method) 
+                      at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:865) 
+                      at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:755) 
+Application terminated.
